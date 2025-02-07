@@ -1,11 +1,19 @@
-// /public/index.php
 <?php
 
-require_once '../core/Controller.php';
-require_once '../core/Model.php';
-require_once '../core/Database.php';
+require_once __DIR__ . '/../app/init.php';
 
-// Initialize the HomeController
-$home = new HomeController();
-$home->index();
+$router = new Router();
+$router->addRoute('/', 'HomeController@index');
+$router->addRoute('/user/login', 'UserController@login');
+$router->addRoute('/user/register', 'UserController@register');
+$router->addRoute('/user/logout', 'UserController@logout');
+
+// Exécution de la route correspondante
+$router->dispatch();
 ?>
+
+<h1>Bienvenue sur MySpotifie</h1>
+<p>Écoutez votre musique préférée gratuitement.</p>
+
+<?php $content = ob_get_clean(); ?>
+<?php include '../app/views/layout.php'; ?>
