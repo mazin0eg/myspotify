@@ -13,7 +13,8 @@ $router->dispatch();
 ?>
 
 <h1>Bienvenue sur MySpotifie</h1>
-<p>Écoutez votre musique préférée gratuitement.</p>
+<p>Écoutez votre musique préférée grat<p>Écoutez votre musique préférée gratuitement.</p>
+uitement.</p>
 
 <?php $content = ob_get_clean(); ?>
 <?php include '../app/views/layout.php'; ?>
